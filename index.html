@@ -1,0 +1,38 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>عرض نموذج ثلاثي الأبعاد</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    model-viewer {
+      width: 90vw;
+      height: 80vh;
+    }
+  </style>
+</head>
+<body>
+  <model-viewer
+    src="model.glb"
+    alt="نموذج ثلاثي الأبعاد"
+    auto-rotate
+    camera-controls
+    ar
+    shadow-intensity="1"
+    exposure="1"
+  >
+  </model-viewer>
+</body>
+</html>
