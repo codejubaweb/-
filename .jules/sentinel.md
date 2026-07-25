@@ -1,0 +1,6 @@
+# Sentinel Security Journal
+
+## 2026-07-25 - [Securing Static SPAs via Meta Content Security Policy]
+**Vulnerability:** Exposure to cross-site scripting (XSS), content injection, and clickjacking attacks due to the lack of dynamic server security headers.
+**Learning:** Purely static React portfolios or SPAs built with Vite do not run on a dynamic backend server, making it impossible to append HTTP response headers such as `Content-Security-Policy` or `X-Frame-Options` dynamically. Furthermore, the CSP directive `frame-ancestors` is ignored inside a `<meta>` tag by modern browsers. Therefore, we must implement Content Security Policy restrictions client-side and combine them with an inline JavaScript frame-busting script to successfully mitigate clickjacking.
+**Prevention:** Enforce a strict `<meta http-equiv="Content-Security-Policy" ... />` tag directly within the head of `index.html`. This tag must restrict scripts, styles, fonts, and images to a predefined whitelist of trusted domains (such as Google Fonts, GitHub, and Google User Content) while denying framing. Whitelisting the inline frame-busting script using its SHA-256 hash (`sha256-cuiyKnVfIzxW1MITrzVkvvukdhbzJDhno5S8HWv2T3s=`) instead of using `'unsafe-inline'` preserves strict XSS protections while keeping the application secure and robust.
