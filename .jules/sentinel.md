@@ -1,0 +1,4 @@
+## 2026-02-20 - CSP and Clickjacking Protection for Static Application
+**Vulnerability:** XSS and Clickjacking risks on static Single-Page Applications (SPA) without server-side HTTP header configuration.
+**Learning:** Modern browsers ignore `frame-ancestors` in HTML meta CSP tags. For static builds where custom HTTP response headers (like `X-Frame-Options` or `Content-Security-Policy: frame-ancestors ...`) cannot be configured easily (e.g. static hosting like GitHub Pages, AI Studio, etc.), an inline frame-busting script must be injected alongside the meta CSP to mitigate clickjacking.
+**Prevention:** Inject a strict meta-CSP and an inline frame-busting script into `index.html` during the Vite production build process, while avoiding injection in development mode to prevent breaking Hot Module Replacement (HMR).
