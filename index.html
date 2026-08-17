@@ -3,13 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Security: Defense-in-depth CSP and Anti-Clickjacking Protection -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-pmNrVqzNmM2zQxsegGp9yp7Ay5Q9kmIK/QifOksnusE=' 'sha256-cuiyKnVfIzxW1MITrzVkvvukdhbzJDhno5S8HWv2T3s='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://lh3.googleusercontent.com; connect-src 'self' https:; frame-src 'none';" />
+    <style id="antiClickjack">html{display:none !important;}</style>
+    <script>
+      if (self === top) {
+        var style = document.getElementById("antiClickjack");
+        if (style) style.parentNode.removeChild(style);
+      } else {
+        top.location = self.location;
+      }
+    </script>
     <title>JUBA | Full-Stack Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
   </head>
   <body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 selection:bg-neon/30 overflow-x-hidden">
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/main.tsx"></script>
   </body>
 </html>
 
