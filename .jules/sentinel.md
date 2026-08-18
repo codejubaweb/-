@@ -1,0 +1,4 @@
+## 2025-08-18 - Content Security Policy & Entry Path Alignment
+**Vulnerability:** Lack of Content Security Policy (CSP) meta header exposing the static React frontend application to potential cross-site scripting (XSS) and data injection risks, plus broken entry script reference `/src/main.tsx` in `index.html` preventing production Vite build completion.
+**Learning:** `main.tsx` is located at the repository root (`./main.tsx`), requiring `index.html` script source `/main.tsx`. External assets loaded from Google Fonts (`fonts.googleapis.com`, `fonts.gstatic.com`), image hosts (`lh3.googleusercontent.com`), and Google Gemini API (`generativelanguage.googleapis.com`) require explicit whitelisting in CSP directives.
+**Prevention:** Enforce strict CSP meta directives and ensure script paths match physical repository structure before production Vite packaging.
