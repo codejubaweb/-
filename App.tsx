@@ -231,10 +231,15 @@ export default function App() {
                   </div>
                   <div className={`absolute top-2 ${lang === 'ar' ? 'left-2' : 'right-2'} text-[10px] text-slate-500 font-bold`}>{t.stats.contributions}</div>
                 </div>
-                <button className="w-full flex items-center justify-center gap-2 border border-slate-700 py-3 rounded-lg hover:bg-slate-700 transition-all font-bold">
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 border border-slate-700 py-3 rounded-lg hover:bg-slate-700 transition-all font-bold"
+                >
                   <span className="material-symbols-outlined text-sm">terminal</span>
                   {t.stats.viewGithub}
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -266,9 +271,10 @@ export default function App() {
             <span className="text-slate-600 mx-2">{t.footer.copyright}</span>
           </div>
           <div className="flex gap-6" dir="ltr">
-            <a className="text-slate-400 hover:text-white transition-colors" href="#">LinkedIn</a>
-            <a className="text-slate-400 hover:text-white transition-colors" href="#">Twitter (X)</a>
-            <a className="text-slate-400 hover:text-white transition-colors" href="#">Dribbble</a>
+            {/* Added target="_blank" and rel="noopener noreferrer" to mitigate reverse tabnabbing and referrer leakage vulnerabilities when navigating to external origins */}
+            <a className="text-slate-400 hover:text-white transition-colors" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a className="text-slate-400 hover:text-white transition-colors" href="https://x.com" target="_blank" rel="noopener noreferrer">Twitter (X)</a>
+            <a className="text-slate-400 hover:text-white transition-colors" href="https://dribbble.com" target="_blank" rel="noopener noreferrer">Dribbble</a>
           </div>
           <div className="text-slate-600 text-sm">
             {t.footer.builtWith}
