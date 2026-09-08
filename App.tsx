@@ -266,9 +266,10 @@ export default function App() {
             <span className="text-slate-600 mx-2">{t.footer.copyright}</span>
           </div>
           <div className="flex gap-6" dir="ltr">
-            <a className="text-slate-400 hover:text-white transition-colors" href="#">LinkedIn</a>
-            <a className="text-slate-400 hover:text-white transition-colors" href="#">Twitter (X)</a>
-            <a className="text-slate-400 hover:text-white transition-colors" href="#">Dribbble</a>
+            {/* Added rel="noopener noreferrer" to prevent reverse tabnabbing vulnerabilities when opening external links */}
+            <a className="text-slate-400 hover:text-white transition-colors" href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a className="text-slate-400 hover:text-white transition-colors" href="#" target="_blank" rel="noopener noreferrer">Twitter (X)</a>
+            <a className="text-slate-400 hover:text-white transition-colors" href="#" target="_blank" rel="noopener noreferrer">Dribbble</a>
           </div>
           <div className="text-slate-600 text-sm">
             {t.footer.builtWith}
