@@ -1,0 +1,4 @@
+## 2026-03-31 - Content Security Policy & Entry Point Resolution
+**Vulnerability:** Lack of Content Security Policy (CSP) headers leaving the application vulnerable to unauthorized cross-site scripting (XSS) and data exfiltration.
+**Learning:** Adding CSP via `<meta>` tag in `index.html` requires explicit inclusion of Google Fonts (`https://fonts.googleapis.com`, `https://fonts.gstatic.com`), image hosts (`https://lh3.googleusercontent.com`), and Gemini API endpoints (`https://generativelanguage.googleapis.com`). Additionally, Vite HTML build plugin requires referencing `/main.tsx` rather than `/src/main.tsx` because `main.tsx` is located at the repository root and no `src/` directory exists.
+**Prevention:** Always verify CSP directive coverage against external dependencies and verify project root file layout before fixing module entry paths in `index.html`.
