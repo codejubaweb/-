@@ -1,0 +1,4 @@
+## 2026-03-01 - Content Security Policy & Client Asset Resolution
+**Vulnerability:** Missing Content Security Policy (CSP) allowed potentially unrestricted loading and execution of untrusted scripts, stylesheets, and connection endpoints in the client browser. Additionally, an invalid entry script path (`/src/main.tsx`) broke production builds.
+**Learning:** Vite's HTML build plugin cannot resolve `/src/main.tsx` when there is no `src/` directory on disk regardless of aliases in `vite.config.ts`. In single-page applications communicating with external services (like Google GenAI), explicit CSP rules (`connect-src`, `font-src`, `img-src`) are necessary to protect client execution context without breaking dynamic features or external image and font assets.
+**Prevention:** Always maintain a defense-in-depth CSP meta tag and reference the actual root entrypoint (`/main.tsx`) directly in `index.html`.
