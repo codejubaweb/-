@@ -1,0 +1,4 @@
+## 2026-08-16 - CSP Meta Tag Constraints and Secret Leak Prevention
+**Vulnerability:** Absence of Content Security Policy (CSP), Referrer Policy, and secret protection (.gitignore) in client-side SPA portfolio.
+**Learning:** Per W3C CSP specifications, `frame-ancestors` directive cannot be enforced via HTML `<meta>` tags and is ignored by browsers; it requires HTTP response headers. Furthermore, client-side `@google/genai` calls will fail unless `connect-src` explicitly allows `https://generativelanguage.googleapis.com` and `https://*.googleapis.com`.
+**Prevention:** Implement a defense-in-depth `<meta http-equiv="Content-Security-Policy">` restricting `default-src`, `object-src 'none'`, and permitting required Google fonts, images, and API endpoints, alongside strict referrer protection and `.gitignore` patterns preventing secret commit.
